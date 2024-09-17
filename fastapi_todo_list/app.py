@@ -1,5 +1,5 @@
 from http import HTTPStatus
-
+from fastapi_todo_list.schemas import UserSchema
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
@@ -24,3 +24,7 @@ def ola_mundo():
         <h1> Olá Mundo </h1>
       </body>
     </html>"""
+    
+@app.post('/users/')
+def create_user(user: UserSchema):
+    return user
